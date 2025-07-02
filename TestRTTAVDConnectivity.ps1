@@ -68,3 +68,4 @@ function Test-AVDConnectivity {
 
 # 4. Test connectivity and write the output
 Test-AVDConnectivity -Urls $avdUrls
+Start-Sleep -Seconds 50

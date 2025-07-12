@@ -1,4 +1,16 @@
-# 1. Azure Virtual Desktop URLs (add more if needed)
+# Justin Verstijnen Test Round Trip Time for AVD Connectivity script
+# Github page: https://github.com/JustinVerstijnen/JV-TestRTTAVDConnectivity
+# Let's start!
+Write-Host "Script made by..." -ForegroundColor DarkCyan
+Write-Host "     _           _   _        __     __            _   _  _                  
+    | |_   _ ___| |_(_)_ __   \ \   / /__ _ __ ___| |_(_)(_)_ __   ___ _ __  
+ _  | | | | / __| __| | '_ \   \ \ / / _ \ '__/ __| __| || | '_ \ / _ \ '_ \ 
+| |_| | |_| \__ \ |_| | | | |   \ V /  __/ |  \__ \ |_| || | | | |  __/ | | |
+ \___/ \__,_|___/\__|_|_| |_|    \_/ \___|_|  |___/\__|_|/ |_| |_|\___|_| |_|
+                                                       |__/                  " -ForegroundColor DarkCyan
+
+# === PARAMETERS ===
+# Azure Virtual Desktop URLs (add more in same convention if needed)
 $avdUrls = @(
     "rdweb.wvd.microsoft.com",
     "rdgateway.wvd.microsoft.com",
@@ -11,8 +23,10 @@ $avdUrls = @(
     "windows365.microsoft.com",
     "ecs.office.com"
 )
+# === END PARAMETERS ===
 
-# 2. Custom function to test connectivity and RTT
+
+# Step 2: Creating function to test connection with command
 function Test-AVDConnectivity {
     param (
         [Parameter(Mandatory = $true)]
@@ -40,12 +54,12 @@ function Test-AVDConnectivity {
         }
     }
 
-    # 3. Output markup
-    Write-Host ""
-    Write-Host "Results:" -ForegroundColor Cyan
-    Write-Host "-------------------------------------------------------------" -ForegroundColor Cyan
-    Write-Host ("{0,-35} {1,-15} {2,-10}" -f "URL", "Status", "RTT") -ForegroundColor Cyan
-    Write-Host "-------------------------------------------------------------" -ForegroundColor Cyan
+# Step 3: Formatting a nice table for the results
+Write-Host ""
+Write-Host "Results:" -ForegroundColor Cyan
+Write-Host "-------------------------------------------------------------" -ForegroundColor Cyan
+Write-Host ("{0,-35} {1,-15} {2,-10}" -f "URL", "Status", "RTT") -ForegroundColor Cyan
+Write-Host "-------------------------------------------------------------" -ForegroundColor Cyan
 
     foreach ($result in $results) {
         $statusText = ""
@@ -66,6 +80,6 @@ function Test-AVDConnectivity {
     Write-Host "-------------------------------------------------------------" -ForegroundColor Cyan
 }
 
-# 4. Test connectivity and write the output
+# Step 4: Printing the results and wait for 50 seconds
 Test-AVDConnectivity -Urls $avdUrls
 Start-Sleep -Seconds 50

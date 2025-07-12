@@ -52,10 +52,10 @@ function Test-AVDConnectivity {
         $color = "White"
 
         if ($result.TcpConnection) {
-            $statusText = "✅ Success"
+            $statusText = "Success"
             $color = "Green"
         } else {
-            $statusText = "❌ Failed"
+            $statusText = "Failed"
             $color = "Red"
         }
 

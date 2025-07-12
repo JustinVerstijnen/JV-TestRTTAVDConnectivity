@@ -1,6 +1,7 @@
 # Justin Verstijnen Test Round Trip Time for AVD Connectivity script
 # Github page: https://github.com/JustinVerstijnen/JV-TestRTTAVDConnectivity
 # Let's start!
+
 Write-Host "Script made by..." -ForegroundColor DarkCyan
 Write-Host "     _           _   _        __     __            _   _  _                  
     | |_   _ ___| |_(_)_ __   \ \   / /__ _ __ ___| |_(_)(_)_ __   ___ _ __  
@@ -54,6 +55,7 @@ function Test-AVDConnectivity {
         }
     }
 
+
 # Step 3: Formatting a nice table for the results
 Write-Host ""
 Write-Host "Results:" -ForegroundColor Cyan
@@ -79,6 +81,7 @@ Write-Host "-------------------------------------------------------------" -Fore
 
     Write-Host "-------------------------------------------------------------" -ForegroundColor Cyan
 }
+
 
 # Step 4: Printing the results and wait for 50 seconds
 Test-AVDConnectivity -Urls $avdUrls
